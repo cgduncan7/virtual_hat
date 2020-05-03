@@ -1,0 +1,28 @@
+{
+  "name": "virtual_hat_server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VIRTUAL HAT SERVER",
+  "main": "./dist/app.js",
+  "scripts": {
+    "build": "webpack",
+    "build:prod": "webpack -p",
+    "watch": "webpack -w",
+    "start": "node ./dist/app.js"
+  },
+  "author": "@cgduncan7",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.13.4",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^7.0.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

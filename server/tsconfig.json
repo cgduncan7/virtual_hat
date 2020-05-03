@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "strict": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,   
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "./src"
+  ],
+  "compileOnSave": false
+}
