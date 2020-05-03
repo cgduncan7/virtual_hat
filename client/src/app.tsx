@@ -53,7 +53,7 @@ class App extends React.Component<IAppProps, IAppState> {
   }
 
   componentDidMount () {
-    const socket = io.connect('http://localhost:3000')
+    const socket = io.connect('http://home.collinduncan.com:54321/virtual-hat/')
     
     socket.on('connect', () => {
       this.setState({ connected: true })
