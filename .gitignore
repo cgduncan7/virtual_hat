@@ -1,7 +1,5 @@
 # client ignores
 client/node_modules/
-client/dist/
 
 # server ignores
 server/node_modules/
-server/dist/
