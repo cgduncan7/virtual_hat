@@ -291,7 +291,7 @@ io.on('connection', function (socket) {
 app.get('/', function (_, res) {
     res.sendStatus(200);
 });
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 server.listen(port, function () { return console.log("I'm listenin on " + port + "!"); });
 
 

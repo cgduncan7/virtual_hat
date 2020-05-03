@@ -39445,7 +39445,7 @@ var App = /** @class */ (function (_super) {
     }
     App.prototype.componentDidMount = function () {
         var _this = this;
-        var socket = io.connect('http://localhost:3000');
+        var socket = io.connect('http://home.collinduncan.com:54321/virtual-hat/');
         socket.on('connect', function () {
             _this.setState({ connected: true });
             _this.forceUpdate();
