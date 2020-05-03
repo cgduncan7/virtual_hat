@@ -1,5 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
+import './style.sass'
+import App from './app'
+
 const container = document.getElementById('app')
-ReactDOM.render(<h1>OK</h1>, container)
+ReactDOM.render(<App />, container)
