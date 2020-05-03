@@ -53,7 +53,9 @@ class App extends React.Component<IAppProps, IAppState> {
   }
 
   componentDidMount () {
-    const socket = io.connect('http://home.collinduncan.com:54321/virtual-hat/')
+    const socket = io.connect('http://home.collinduncan.com:54321/', {
+      path: '/virtual-hat/socket-io',
+    })
     
     socket.on('connect', () => {
       this.setState({ connected: true })

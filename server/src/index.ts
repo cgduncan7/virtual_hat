@@ -10,7 +10,9 @@ import { Application, Request, Response } from 'express'
 // servers
 const app: Application = express()
 const server: Server = http.createServer(app)
-const io: SocketIO.Server = socketIO(server)
+const io: SocketIO.Server = socketIO(server, {
+  path: '/virtual-hat/socket-io'
+})
 
 // handlers
 import PlayerHandler from './players/handler'

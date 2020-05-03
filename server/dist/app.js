@@ -278,7 +278,9 @@ var socketIO = __webpack_require__(/*! socket.io */ "socket.io");
 // servers
 var app = express();
 var server = http.createServer(app);
-var io = socketIO(server);
+var io = socketIO(server, {
+    path: '/virtual-hat/socket-io'
+});
 // handlers
 var handler_1 = __webpack_require__(/*! ./players/handler */ "./players/handler.ts");
 var handler_2 = __webpack_require__(/*! ./hat/handler */ "./hat/handler.ts");

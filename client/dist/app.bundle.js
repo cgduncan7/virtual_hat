@@ -39445,7 +39445,9 @@ var App = /** @class */ (function (_super) {
     }
     App.prototype.componentDidMount = function () {
         var _this = this;
-        var socket = io.connect('http://home.collinduncan.com:54321/virtual-hat/');
+        var socket = io.connect('http://home.collinduncan.com:54321/', {
+            path: '/virtual-hat/socket-io',
+        });
         socket.on('connect', function () {
             _this.setState({ connected: true });
             _this.forceUpdate();
