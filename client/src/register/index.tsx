@@ -1,4 +1,6 @@
-import * as React from 'react';
+import * as React from 'react'
+
+import './style.sass'
 
 export interface IRegisterProps {
   register: Function
@@ -40,14 +42,16 @@ class Register extends React.Component<IRegisterProps, IRegisterState> {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nickname"
-          onChange={this.handleChange}
-          value={this.state.nickname} />
-        <button>Register</button>
-      </form>
+      <div className="register">
+        <form className="register-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nickname"
+            onChange={this.handleChange}
+            value={this.state.nickname} />
+          <button disabled={this.state.nickname?.length === 0}>Register</button>
+        </form>
+      </div>
     )
   }
 }

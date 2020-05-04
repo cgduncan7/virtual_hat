@@ -1,3 +1,4 @@
+/// <reference path="../index.d.ts" />
 import * as React from 'react'
 
 export interface IHatProps {
@@ -22,8 +23,10 @@ export interface IHatState {
   _submission?: string
 }
 
-import './style.sass'
 import { ISubmission } from './types'
+
+import './style.sass'
+import HatPNG from './virtual_hat.png'
 
 export default class Hat extends React.Component<IHatProps, IHatState> {
   state: IHatState = {
@@ -101,7 +104,7 @@ export default class Hat extends React.Component<IHatProps, IHatState> {
                 </div>
               : <button onClick={this.props.pick} disabled={!this.props.myPick}>PICK</button>
           }
-          <img src="/public/top-hat.png"></img>
+          <img src={HatPNG}></img>
           <h1>{ this.props.theme || 'Waiting for theme...' }</h1>
         </div>
         { this.props.hatMaster && this.renderHatMasterControls() }

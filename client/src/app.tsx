@@ -210,7 +210,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
   render () {
     return (
-      <div>
+      <div className="app">
         {
           this.state.registered
             ? this.renderVirtualHatScreen()

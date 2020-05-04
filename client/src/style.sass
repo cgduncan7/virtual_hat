@@ -1,22 +1,78 @@
+@import './fonts.sass'
+@import './colors.sass'
+
 *
+  @include Oswald400
   box-sizing: border-box
-  font-family: 'Oswald', sans-serif
   text-transform: uppercase
+  color: $black
+
+@keyframes colorify
+  from
+    background-color: $primary
+  to
+    background-color: $secondary
+
+body
+  background: url('./bg_tile.png')
+  background-size: 300px
+  background-repeat: repeat
+  background-color: $primary
+  animation: colorify 5s ease-in-out alternate infinite forwards
+
 
 input[type=text]
   outline: none
   border: 1px solid black
   box-shadow: 1px 2px 2px black
-  font-size: 14px
+  font-size: 16px
   text-align: center
+  padding: 10px
 
 button
   outline: none
   border: 1px solid black
   box-shadow: 1px 2px 2px black
-  font-size: 18px
+  font-size: 16px
   padding: 10px
   cursor: pointer
+
+  &:disabled
+    color: gray !important
+    background: lightgray !important
+    cursor: default !important
+    animation: none !important
+  
   &:hover
     color: white
     background: black
+    animation: button-jiggle 0.5s forwards
+
+@keyframes button-jiggle
+  0%
+    transform: rotate(0deg) scale(1)
+  12%
+    transform: rotate(2deg) 
+  25%
+    transform: rotate(0deg) scale(1.05)
+  37%
+    transform: rotate(-2deg) 
+  50%
+    transform: rotate(0deg) scale(1.05)
+  62%
+    transform: rotate(2deg)
+  75%
+    transform: rotate(0deg) scale(1.05)
+  87%
+    transform: rotate(-2deg) 
+  100%
+    transform: rotate(0deg) scale(1)
+
+#root
+  height: 100%
+  width: 100%
+  position: relative
+
+.app
+  height: 100%
+  width: 100%
