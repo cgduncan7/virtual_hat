@@ -6,7 +6,7 @@
   "main": "./dist/app.js",
   "scripts": {
     "build": "webpack",
-    "build:prod": "webpack -p",
+    "build:prod": "webpack -p --config webpack.production.config.js",
     "watch": "webpack -w",
     "start": "node ./dist/app.js"
   },
