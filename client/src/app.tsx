@@ -53,7 +53,11 @@ class App extends React.Component<IAppProps, IAppState> {
   }
 
   componentDidMount () {
-    const socket = io.connect('http://home.collinduncan.com:54321/', {
+    const url = process.env.NODE_ENV === 'production'
+      ? 'http://home.collinduncan.com:54321/'
+      : 'localhost:3001'
+
+    const socket = io.connect(url, {
       path: '/virtual-hat/socket-io',
     })
     
@@ -100,6 +104,7 @@ class App extends React.Component<IAppProps, IAppState> {
         }
         case HatSocketServerEventEnum.WAIT: {
           this.setState({ pickedSubmission: undefined })
+          break
         }
         case HatSocketServerEventEnum.NO_SUBMISSIONS_LEFT: {
           this.setState({ empty: true })
@@ -118,7 +123,6 @@ class App extends React.Component<IAppProps, IAppState> {
           break
         }
         case HatSocketServerEventEnum.SUBMISSION_RECEIVED: {
-          console.log('here')
           this.setState({ numSubmissions: this.state.numSubmissions + 1 })
           break
         }

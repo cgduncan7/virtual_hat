@@ -6,6 +6,8 @@ import {
   PlayerSocketServerEventEnum,
 } from "./types";
 import eventFactory from "./eventFactory";
+import hatEventFactory from "../hat/eventFactory";
+import { HatSocketServerEventEnum } from "../hat/types";
 
 export default class PlayerHandler {
   currentTurn: number
@@ -87,8 +89,10 @@ export default class PlayerHandler {
     }
   }
 
-  nextTurn (_: SocketIO.Socket) {
+  nextTurn (socket: SocketIO.Socket) {
     const nextIndex = (this.currentTurn) % this.players.length
+    socket.emit('hat', hatEventFactory(HatSocketServerEventEnum.WAIT))
+    socket.broadcast.emit('hat', hatEventFactory(HatSocketServerEventEnum.WAIT))
     this.players[nextIndex].socket.emit('player', eventFactory(PlayerSocketServerEventEnum.YOUR_PICK))
   }
   

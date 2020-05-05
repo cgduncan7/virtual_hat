@@ -330,6 +330,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var player_1 = __webpack_require__(/*! ./player */ "./players/player.ts");
 var types_1 = __webpack_require__(/*! ./types */ "./players/types.ts");
 var eventFactory_1 = __webpack_require__(/*! ./eventFactory */ "./players/eventFactory.ts");
+var eventFactory_2 = __webpack_require__(/*! ../hat/eventFactory */ "./hat/eventFactory.ts");
+var types_2 = __webpack_require__(/*! ../hat/types */ "./hat/types.ts");
 var PlayerHandler = /** @class */ (function () {
     function PlayerHandler(socketServer) {
         this.players = [];
@@ -409,8 +411,10 @@ var PlayerHandler = /** @class */ (function () {
             default: break;
         }
     };
-    PlayerHandler.prototype.nextTurn = function (_) {
+    PlayerHandler.prototype.nextTurn = function (socket) {
         var nextIndex = (this.currentTurn) % this.players.length;
+        socket.emit('hat', eventFactory_2.default(types_2.HatSocketServerEventEnum.WAIT));
+        socket.broadcast.emit('hat', eventFactory_2.default(types_2.HatSocketServerEventEnum.WAIT));
         this.players[nextIndex].socket.emit('player', eventFactory_1.default(types_1.PlayerSocketServerEventEnum.YOUR_PICK));
     };
     PlayerHandler.prototype.onRegister = function (socket, nickname) {

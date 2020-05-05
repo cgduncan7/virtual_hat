@@ -43,6 +43,7 @@ class Register extends React.Component<IRegisterProps, IRegisterState> {
   render () {
     return (
       <div className="register">
+        <h1>Virtual Hat</h1>
         <form className="register-form" onSubmit={this.handleSubmit}>
           <input
             type="text"

@@ -7,6 +7,12 @@
   text-transform: uppercase
   color: $black
 
+h1, h2, h3, h4, h5, h6
+  @include Pacifico
+  color: $white
+  text-shadow: 1px 1px $black
+  text-align: center
+
 @keyframes colorify
   from
     background-color: $primary
@@ -23,30 +29,35 @@ body
 
 input[type=text]
   outline: none
-  border: 1px solid black
-  box-shadow: 1px 2px 2px black
+  border: 1px solid $black
+  box-shadow: 1px 2px 2px $black
   font-size: 16px
   text-align: center
   padding: 10px
 
 button
   outline: none
-  border: 1px solid black
-  box-shadow: 1px 2px 2px black
+  border: 1px solid $black
+  box-shadow: 1px 2px 2px $black
   font-size: 16px
   padding: 10px
   cursor: pointer
 
   &:disabled
-    color: gray !important
-    background: lightgray !important
+    color: $gray !important
+    background: $lightgray !important
     cursor: default !important
     animation: none !important
   
   &:hover
-    color: white
-    background: black
+    color: $white
+    background: $black
     animation: button-jiggle 0.5s forwards
+  
+  &.attention
+    color: $white
+    background: $accent
+    animation: button-attention 1s infinite forwards
 
 @keyframes button-jiggle
   0%
@@ -67,6 +78,18 @@ button
     transform: rotate(-2deg) 
   100%
     transform: rotate(0deg) scale(1)
+
+@keyframes button-attention
+  0%
+    transform: scale(1)
+  25%
+    transform: scale(1.25)
+  50%
+    transform: scale(1)
+  75%
+    transform: scale(1.25)
+  100%
+    transform: scale(1)
 
 #root
   height: 100%

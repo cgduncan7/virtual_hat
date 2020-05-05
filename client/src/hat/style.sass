@@ -1,7 +1,23 @@
 .hat
+  position: relative
   display: flex
   flex-direction: column
   align-items: center
+
+  .hat_submission
+    display: flex
+    flex-direction: row
+
+    input
+      flex: 1
+
+  .hat_pick:disabled
+    visibility: hidden
+
+  .num_submissions
+    position: absolute
+    top: 50%
+    left: 50%
 
   input
     height: 60px
@@ -12,8 +28,16 @@
   img
     margin-top: 20px
     margin-bottom: -40px
-    width: 50%
-    height: auto
+    width: 300px
+    height: 300px
+
+    @media (min-height: 992px) and (min-width: 800px)
+      width: 600px
+      height: 600px
+    
+    @media (min-height: 700px) and (min-width: 600px)
+      width: 400px
+      height: 400px
 
 .hat-master-controls
   display: flex
@@ -21,12 +45,35 @@
   align-items: center
   justify-content: space-around
 
+  @media (max-width: 600px)
+    flex-direction: column
+
+  *
+    flex: 1
+    margin: 10px
+
+  .hat-master-controls-theme
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    input
+      flex: 1
+
 .pick
-  display: absolute
+  position: absolute
+  display: flex
   top: 0
-  left: 0
-  right: 0
-  bottom: 0
+  left: 20%
+  right: 20%
+  bottom: 80%
   flex-direction: row
   align-items: center
   justify-content: center
+  background: black
+  *
+    color: black !important
+
+  &.flipped
+    *
+      color: white !important
